@@ -37,6 +37,8 @@ exports.getProductDetails = catchAsyncError(async (req, res, next) => {
 
 //Create A Product - Admin Role
 exports.createProduct = catchAsyncError(async (req, res, next) => {
+  req.body.user = req.user.id;
+
   const product = await Product.create(req.body);
 
   res.status(201).json({
