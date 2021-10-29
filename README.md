@@ -47,7 +47,13 @@
 <!--START_SECTION:waka-->
 
 ```text
+BACKEND
 >>> npm run dev
+```
+
+```text
+FRONTEND
+>>> npm start
 ```
 
 <!--END_SECTION:waka-->
