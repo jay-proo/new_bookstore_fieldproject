@@ -15,6 +15,8 @@ const Home = () => {
           </button>
         </a>
       </div>
+
+      <h2 className="homeHeading"></h2>
     </Fragment>
   );
 };
