@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { CgMouse } from "react-icons/all";
 import "./Home.css";
 import Product from "./Product.js";
+import MetaData from "../layout/MetaData";
 
 const product = {
   name: "Artificial Intelligence Basics: A Non-Technical Introduction",
@@ -17,6 +18,8 @@ const product = {
 const Home = () => {
   return (
     <Fragment>
+      <MetaData title="Gatito y Libros" />
+
       <div className="banner">
         <p>Welcome to Gatito y Libros Bookstore</p>
         <h1>A Big Online Treasure of Books for you...</h1>
