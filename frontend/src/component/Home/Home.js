@@ -1,8 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { CgMouse } from "react-icons/all";
 import "./Home.css";
 import Product from "./Product.js";
 import MetaData from "../layout/MetaData";
+import { getProduct } from "../../actions/productAction";
+import { useSelector, useDispatch } from "react-redux";
 
 const product = {
   name: "Artificial Intelligence Basics: A Non-Technical Introduction",
@@ -16,6 +18,15 @@ const product = {
 };
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { loading, error, products, productsCount } = useSelector(
+    (state) => state.products
+  );
+
+  useEffect(() => {
+    dispatch(getProduct());
+  }, [dispatch]);
+
   return (
     <Fragment>
       <MetaData title="Gatito y Libros" />
@@ -34,14 +45,7 @@ const Home = () => {
       <h2 className="homeHeading">Feature Books</h2>
 
       <div className="container" id="container">
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
+        {products && products.map((product) => <Product product={product} />)}
       </div>
     </Fragment>
   );
